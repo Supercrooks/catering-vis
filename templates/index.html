@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>餐饮消费数据可视化系统
+
+	</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- <link rel="stylesheet" href="../static/css/ion.rangeSlider.css"> -->
+
+</head>
+<body>
+    <div class="container">
+        <div id="left1"></div>
+		<div id="left3">
+			<img id='img_wc' src="/get_left3_data" />
+		</div>
+        <div id="left2"></div>
+        <div id="title">绵阳餐饮消费数据可视化</div>
+        <div id="center"></div>
+        <!-- <div id="bottom"></div> -->
+        <div id="right1">
+            <div id="recommend">
+				<h1>个性化推荐</h1> <!-- 标题 -->
+				<p>店铺评分</p>
+				<div id="evaluate">
+					5&nbsp;<input aria-label="score" type="checkbox" name="score" value="5" /> &emsp;
+					4&nbsp;<input type="checkbox" name="score" value="4" /> &emsp;
+					3&nbsp;<input type="checkbox" name="score" value="3" /> &emsp;
+					2&nbsp;<input type="checkbox" name="score" value="2" /> &emsp;
+					1&nbsp;<input type="checkbox" name="score" value="1" /> &emsp; 
+				</div>
+				<p>预算范围</p>
+				<div id="sale">
+					最小值: <input type="number" name="sale_begin" id="sale_begin"/>  
+					<br>
+					<br>
+					最大值: <input type="number" name="sale_end" id="sale_end" />
+					<!-- sale_begin表示价格起点 sale_end表示价格终点 -->
+				</div> 
+
+
+				<!-- <div class="filter_view">
+                    <div id="score_filter" class="filter">
+                        <font style="font-size: 17px; font-family: simhei;">评分</font>
+                        <input type="text" class="js-range-slider" id="slider_score" />
+                    </div>
+                    <div id="price_filter" class="filter">
+                        <font style="font-size: 17px; font-family: simhei;">价格</font>
+                        <input type="text" class="js-range-slider" id="slider_price" />
+                    </div>
+                </div> -->
+
+				<p>店铺类别</p>
+
+				<div id="menu">
+					<!-- <input type="checkbox" name="classify" value="火锅" tabindex="0" class="icheck" id="icheck" />     <label for="icheck" class="ilabel">label> -->
+					
+					<input type="checkbox" name="classify" value="食品保健" tabindex="0" />食品保健&nbsp;
+					<input type="checkbox" name="classify" value="东北菜  " tabindex="0" />东北菜&nbsp;
+					<input type="checkbox" name="classify" value="特色菜  " tabindex="0" />特色菜&nbsp;
+					<br>
+					<input type="checkbox" name="classify" value="香锅烤鱼" tabindex="0" />香锅烤鱼&nbsp;
+					<input type="checkbox" name="classify" value="新疆菜  " tabindex="0" />新疆菜&nbsp;
+					<input type="checkbox" name="classify" value="火锅    " tabindex="0" />火锅&nbsp;
+					<br>
+					
+					<input type="checkbox" name="classify" value="生日蛋糕" tabindex="0"  />生日蛋糕&nbsp;
+					<input type="checkbox" name="classify" value="自助餐  " tabindex="0" />自助餐&nbsp;
+					<input type="checkbox" name="classify" value="西餐    " tabindex="0"/>西餐&nbsp;
+					
+					<br>
+					<input type="checkbox" name="classify" value="小吃快餐" tabindex="0"/>小吃快餐&nbsp;
+					<input type="checkbox" name="classify" value="川湘菜  " tabindex="0" />川湘菜&nbsp;
+					<br>
+					<input type="checkbox" name="classify" value="其他美食" tabindex="0"/>其他美食&nbsp;
+					<input type="checkbox" name="classify" value="创意菜  " tabindex="0" />创意菜&nbsp;
+					
+					<br>
+					<input type="checkbox" name="classify" value="江河湖海鲜" tabindex="0"  />江河海鲜&nbsp;
+					<input type="checkbox" name="classify" value="饮品店  " tabindex="0" />饮品店&nbsp;
+					<br>
+
+					<input type="checkbox" name="classify" value="烧烤烤串" tabindex="0" />烧烤烤串&nbsp;
+					<input type="checkbox" name="classify" value="小龙虾  " tabindex="0" />小龙虾&nbsp;
+					
+					
+					<br>
+					<input type="checkbox" name="classify" value="日韩料理" tabindex="0" />日韩料理&nbsp;				
+					<input type="checkbox" name="classify" value="北京菜  " tabindex="0"/>北京菜&nbsp;
+					<br>	
+					
+					
+					
+				</div>
+				<!-- <p>目前所在地</p>
+				<div id="location">
+					<input type="text" name="location_now" id="location_now" />&nbsp;<button onclick="get_location()">定位</button>
+				</div> -->
+				<div class="group_btn">
+					<button class="search_btn" onclick="get_input()">查询</button>
+				</div>
+
+				<div id="comments_view" class="info_box">
+					<div class="info_box comment">dfhfdghsdfxh</div>
+					<div class="info_box comment">fghdfgjhfghdfxgh</div>
+					<div class="info_box comment">fghdfghdfgh</div>
+				</div>
+
+			</div>
+        </div>
+        <div id="right2"></div>
+    </div>
+    <script src="../static/js/jquery.js"></script>
+	<script src="../static/js/CustomTip.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/echarts-wordcloud.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=KWbLsI5oSCdNhiN0UW6MO48Yda4qXgS1"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+
+    <script src="../static/js/cca_left1.js"></script>
+    <script src="../static/js/cca_left2.js"></script>
+    <script src="../static/js/cca_right1.js"></script>
+    <script src="../static/js/cca_right2.js"></script>
+    <script src="../static/js/cca_center.js"></script>
+    <script src="../static/js/cca_bottom.js"></script>
+	<!-- <script src="../static/js/ion.rangeSlider.js"></script> -->
+    <script src="../static/js/controller.js"></script>
+	<!-- <script src="../static/js/front.js"></script> -->
+
+</body>
+</html>
