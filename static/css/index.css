@@ -153,7 +153,7 @@ body{
 .button{
     position: absolute;
 
-    top: 18%;
+    top: 13%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -175,7 +175,7 @@ body{
 .button_1{
     position: absolute;
 
-    top: 30%;
+    top: 25%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -196,7 +196,7 @@ body{
 .button_2{
     position: absolute;
 
-    top: 42%;
+    top: 37%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -219,7 +219,7 @@ body{
 .button_3{
     position: absolute;
 
-    top: 54%;
+    top: 49%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -240,7 +240,7 @@ body{
 .button_4{
     position: absolute;
 
-    top: 66%;
+    top: 61%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -261,7 +261,7 @@ body{
 .button_5{
     position: absolute;
 
-    top: 78%;
+    top: 73%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -283,7 +283,7 @@ body{
 .button_6{
     position: absolute;
 
-    top: 90%;
+    top: 85%;
     left: 85%;
     /* width: 10%;
     height: 10%;  */
@@ -326,6 +326,10 @@ body{
     background-color: #cdd4b6; /* Green */
     color: white;
 }
+.button_6:hover {
+    background-color: #cdd4b6; /* Green */
+    color: white;
+}
 /*个性化推荐*/
 
 
@@ -333,6 +337,7 @@ body{
 #recommend {
     position:absolute;
 	height: 100%;
+    width: 50%;
 	border-radius: 40px;
 	padding: 10px 35px;
 }
@@ -347,11 +352,42 @@ body{
 
 #evaluate {
 	/* margin-left: 30px; */
+    width: 100%;
 	font-size: 17px;
 }
+#evaluate input {
+	/* width: 40px;
+	height: 26px;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	text-align: center;
+    background:rgba(0,0,0,0); */
+    font-family:Arial,Helvetica,sans-serif;
+	background:none repeat scroll 0 0 #F5F7FD;
+	border:1px solid #2c7df6;
+    border-radius: 10px;
+	padding:5px 7px;
+	width:50%;
+	vertical-align:middle;
+	height:26px;
+	font-size:17px;
+	margin:0;
+
+	list-style:none outside none;
+}
+#slider_score{
+    width: 100%;
+}
+
+#slider_price{
+    width: 100%;
+}
+
 
 #sale {
 	/* margin-left: 30px; */
+    width: 100%;
 }
 
 #sale input {
@@ -367,7 +403,7 @@ body{
 	border:1px solid #2c7df6;
     border-radius: 10px;
 	padding:5px 7px;
-	width:50px;
+	width:50%;
 	vertical-align:middle;
 	height:26px;
 	font-size:17px;
