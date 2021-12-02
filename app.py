@@ -36,9 +36,9 @@ def get_left3_data():
 @app.route('/get_left3_data_2')
 def get_left3_data_2():
     id = request.args.get("id")
-    print('**********************************')
-    print(type(id))
-    print(id)
+    # print('**********************************')
+    # print(type(id))
+    # print(id)
     return send_file( handler.l3_data(int(id)), mimetype='image/png', as_attachment=False )
 
 
@@ -55,7 +55,12 @@ def get_center_data():
 
 @app.route('/get_right2_data')
 def get_right2_data():
-    return handler.r2_data()
+    return handler.getShopCategoryNumByRegion("全市")
+
+@app.route('/get_right2_data_by_type',methods=['POST'])
+def get_right2_data_by_type():
+    regionType = json.loads(list(request.form)[0])["regionType"]
+    return handler.getShopCategoryNumByRegion(regionType)
 
 if __name__ == '__main__':
     app.run(debug=True)

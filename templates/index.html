@@ -8,39 +8,50 @@
     <link rel="stylesheet" href="../static/css/index.css">
 	<link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
 	<link rel="stylesheet" href="../static/css/style.css">
-	<!-- <link rel="stylesheet" href="../static/css/ion.rangeSlider.css"> -->
+    <link rel="stylesheet" href="../static/front.css" />
+	<link rel="stylesheet" href="../static/css/ion.rangeSlider.css"/>
+    <script src="../static/js/jquery.js"></script>
+	<script src="../static/js/ion.rangeSlider.js"></script>
 
 </head>
 <body>
     <div class="container">
         <div id="left1"></div>
 		<div id="left3">
+			<div id="font_1">店铺评论</div>
 			<img id='img_wc' src="/get_left3_data" />
 		</div>
         <div id="left2"></div>
         <div id="title">绵阳餐饮消费数据可视化</div>
         <div id="center"></div>
-        <!-- <div id="bottom"></div> -->
+        <div id="bottom"></div>
         <div id="right1">
             <div id="recommend">
 				<h1>个性化推荐</h1> <!-- 标题 -->
-				<p>店铺评分</p>
-				<div id="evaluate">
-					5&nbsp;<input aria-label="score" type="checkbox" name="score" value="5" /> &emsp;
-					4&nbsp;<input type="checkbox" name="score" value="4" /> &emsp;
-					3&nbsp;<input type="checkbox" name="score" value="3" /> &emsp;
-					2&nbsp;<input type="checkbox" name="score" value="2" /> &emsp;
-					1&nbsp;<input type="checkbox" name="score" value="1" /> &emsp; 
-				</div>
-				<p>预算范围</p>
-				<div id="sale">
-					最小值: <input type="number" name="sale_begin" id="sale_begin"/>  
-					<br>
-					<br>
-					最大值: <input type="number" name="sale_end" id="sale_end" />
-					<!-- sale_begin表示价格起点 sale_end表示价格终点 -->
-				</div> 
-
+{#				<p>店铺评分</p>#}
+{#				<div id="evaluate">#}
+{#					5&nbsp;<input aria-label="score" type="checkbox" name="score" value="5" /> &emsp;#}
+{#					4&nbsp;<input type="checkbox" name="score" value="4" /> &emsp;#}
+{#					3&nbsp;<input type="checkbox" name="score" value="3" /> &emsp;#}
+{#					2&nbsp;<input type="checkbox" name="score" value="2" /> &emsp;#}
+{#					1&nbsp;<input type="checkbox" name="score" value="1" /> &emsp; #}
+{#				</div>#}
+{#				<p>预算范围</p>#}
+{#				<div id="sale">#}
+{#					最小值: <input type="number" name="sale_begin" id="sale_begin"/>  #}
+{#					<br>#}
+{#					<br>#}
+{#					最大值: <input type="number" name="sale_end" id="sale_end" />#}
+{#					<!-- sale_begin表示价格起点 sale_end表示价格终点 -->#}
+{#				</div> #}
+            <div id="evaluate" class="filter">
+				<font style="font-size: 20px; color: #333333;">评分</font>
+				<input type="text" class="js-range-slider " id="slider_score" />
+			</div>
+			<div id="sale" class="filter">
+				<font style="font-size: 20px; color: #333333;">价格</font>
+				<input type="text" class="js-range-slider " id="slider_price" />
+			</div>
 
 				<!-- <div class="filter_view">
                     <div id="score_filter" class="filter">
@@ -89,7 +100,7 @@
 					
 					<br>
 					<input type="checkbox" name="classify" value="日韩料理" tabindex="0" />日韩料理&nbsp;				
-					<input type="checkbox" name="classify" value="北京菜  " tabindex="0"/>北京菜&nbsp;
+					<input type="checkbox" name="classify" value="北京菜" tabindex="0"/>北京菜&nbsp;
 					<br>	
 					
 					
@@ -111,9 +122,23 @@
 
 			</div>
         </div>
-        <div id="right2"></div>
+
+		<div id="right2">
+			<div id="right2_1"></div>
+
+			<div class="right2_2">
+                <button  class="button_1" onclick="get_num('涪城区')">涪城区</button>
+				<button  class="button" onclick="get_num('游仙区')">游仙区</button>
+				<button  class="button_2" onclick="get_num('安州区')">安州区</button>
+				<button  class="button_3" onclick="get_num('三台县')">三台县</button>
+				<button  class="button_4" onclick="get_num('梓潼县')">梓潼县</button>
+				<!-- <button  class="button" onclick="get_input_6()">平武县 </button> -->
+				<button  class="button_5" onclick="get_num('江油市')">江油市</button>
+                <button  class="button_6" onclick="get_num('全市')">绵阳市</button>
+			</div>
+		</div>
+
     </div>
-    <script src="../static/js/jquery.js"></script>
 	<script src="../static/js/CustomTip.js"></script>
     <script src="../static/js/echarts.min.js"></script>
     <script src="../static/js/echarts-wordcloud.min.js"></script>
@@ -126,9 +151,8 @@
     <script src="../static/js/cca_right2.js"></script>
     <script src="../static/js/cca_center.js"></script>
     <script src="../static/js/cca_bottom.js"></script>
-	<!-- <script src="../static/js/ion.rangeSlider.js"></script> -->
     <script src="../static/js/controller.js"></script>
-	<!-- <script src="../static/js/front.js"></script> -->
+	<script src="../static/js/front.js"></script>
 
 </body>
 </html>
