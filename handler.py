@@ -227,10 +227,24 @@ def getShopCategoryNumByRegion(region):
                 shop_category[shop_type] += 1
             else:
                 shop_category[shop_type] = 1
+    # for k in shop_category.keys():
+    #     print(k)
+    #     print('\n')
+    if '中式烧烤/烤串' in shop_category:
+        if '烧烤烤串' in shop_category:
+            shop_category['烧烤烤串'] += shop_category['中式烧烤/烤串']
+            shop_category.pop('中式烧烤/烤串')
+        else:
+            shop_category.pop('中式烧烤/烤串')
+    if '素食' in shop_category:
+        shop_category.pop('素食')
     dic_new = dict(zip(shop_category.values(), shop_category.keys()))
     result = []
     for i, j in dic_new.items():
         result.append({'value':i, 'name':j})
+    temp = result[len(result)-1]
+    result[len(result)-1] = result[3]
+    result[3] = temp
     return json.dumps({"data": result}, cls=util.NpEncoder)
 
 # def l2_data_hash(listUserId):
