@@ -56,6 +56,17 @@ body{
 	overflow: hidden;
 
 }
+#font_1{
+    position: absolute;
+    font-size: 17px;
+    font-weight: 200;
+    color:rgb(48, 234, 166);
+}
+#img_wc{
+    position: absolute;
+    left:25px;
+    top:30px
+}
 
 #left2{
     position: absolute;

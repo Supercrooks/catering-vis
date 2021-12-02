@@ -8,6 +8,7 @@ import pandas as pd
 import json
 import util
 import numpy as np
+from PIL import Image
 
 import io
 
@@ -99,7 +100,8 @@ def l3_data(id):# 词云
     img = io.BytesIO()
     txt = " ".join( [ str(t) for t in list(m[id]) if str(t)!="nan" ] )
     font = "Deng.ttf"
-    w = wordcloud.WordCloud(background_color="white",width=270, height=430,font_path=font)
+    alice = np.array(Image.open("./static/js/7.jpeg").resize((250,370)))
+    w = wordcloud.WordCloud(background_color="white",width=250, height=370,mask=alice ,font_path=font)
     w.generate(txt)
     w.to_image().save(img,format="PNG")
     img.seek(0)
