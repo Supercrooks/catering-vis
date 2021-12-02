@@ -29,54 +29,73 @@ bgPatternImg.src = bgPatternSrc;
 
 // };
 // 显示所有店铺总览
+
+function get_num(regionType) {
+
+  // var btn_yx = document.getElementById("btn_yx").getAttribute("value")
+    // alert(btn_yx)
+  $.ajax({
+    url:"/get_right2_data_by_type",
+    type:"POST",
+    dataType:"json",
+    data: JSON.stringify({
+               // "regionType":"游仙区"
+                "regionType":regionType
+          }),
+    success:function (data) {
+        // 将数据渲染到页面上
+        cca_right2_option_2.series[0].data = data.data;
+        cca_right2.setOption(cca_right2_option_2)
+    },
+    error:function (xhr,type,errorThrown) {
+        alert("发送ajax请求失败")
+    }
+  })
+}
+
 cca_right2_option_2 = {
 
-    backgroundColor: {
-        image: bgPatternImg,
-        repeat: 'repeat'
-      },
-      title: {
-        text: '饼图纹理',
-        textStyle: {
-          color: '#235894'
-        }
-      },
-      tooltip: {},
-      series: [
-        {
-          name: 'pie',
-          type: 'pie',
-          selectedMode: 'single',
-          selectedOffset: 30,
-          clockwise: true,
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      top: '5%',
+      left: 'center'
+    },
+    series: [
+      {
+        center: ['50%', '60%'],
+        name: 'Access From',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        itemStyle: {
+          borderRadius: 10,
+          borderColor: '#fff',
+          borderWidth: 2
+        },
+        label: {
+          show: false,
+          position: 'center'
+        },
+        emphasis: {
           label: {
-            fontSize: 18,
-            color: '#235894'
-          },
-          labelLine: {
-            lineStyle: {
-              color: '#235894'
-            }
-          },
-          data: [
-            { value: 1048, name: 'Search Engine' },
-            { value: 735, name: 'Direct' },
-            { value: 580, name: 'Email' },
-            { value: 484, name: 'Union Ads' },
-            { value: 300, name: 'Video Ads' }
-          ],
-          itemStyle: {
-            opacity: 0.7,
-            color: {
-              image: piePatternImg,
-              repeat: 'repeat'
-            },
-            borderWidth: 3,
-            borderColor: '#235894'
+            show: true,
+            fontSize: '40',
+            fontWeight: 'bold'
           }
-        }
-      ]
-
+        },
+        labelLine: {
+          show: false
+        },
+        data: []
+          // { value: 1048, name: 'Search Engine' },
+          // { value: 735, name: 'Direct' },
+          // { value: 580, name: 'Email' },
+          // { value: 484, name: 'Union Ads' },
+          // { value: 300, name: 'Video Ads' }
+      }
+    ]
 
     // title: {
     //     text: '所有店铺数据',

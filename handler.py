@@ -148,6 +148,53 @@ def r2_data():
 
     return json.dumps({"data":l}, cls=util.NpEncoder)
 
+def getShopCategoryNumByRegion(region):
+    # 0 东北菜
+    # 1 中式烧烤/烤串
+    # 2 云贵菜
+    # 3 其他美食
+    # 4 创意菜
+    # 5 北京菜
+    # 6 小吃快餐
+    # 7 小龙虾
+    # 8 川湘菜
+    # 9 新疆菜
+    # 10 日本菜
+    # 11 日韩料理
+    # 12 江河湖海鲜
+    # 13 火锅
+    # 14 烧烤烤串
+    # 15 特色菜
+    # 16 生日蛋糕
+    # 17 素食
+    # 18 自助餐
+    # 19 西北菜
+    # 20 西餐
+    # 21 面包甜点
+    # 22 食品保健
+    # 23 饮品店
+    # 24 香锅烤鱼
+    # shop_category = ['东北菜', '中式烧烤/烤串', '云贵菜', '其他美食', '创意菜', '北京菜', '小吃快餐', '小龙虾', '川湘菜', '新疆菜', '日本菜', '日韩料理', '江河湖海鲜', '火锅', '烧烤烤串', '特色菜', '生日蛋糕', '素食', '自助餐', '西北菜', '西餐', '面包甜点', '食品保健', '饮品店', '香锅烤鱼']
+    shop_category = {}
+    for row in shop_df03.iterrows():
+        shop_info = list(row)[1]
+        shop_type = shop_info["type"]
+        s = "".join([str(j) for j in shop_info["address"][0:3]])
+        if(region == "全市"):
+            if shop_type in shop_category:
+                shop_category[shop_type] += 1
+            else:
+                shop_category[shop_type] = 1
+        elif (s == region):
+            if shop_type in shop_category:
+                shop_category[shop_type] += 1
+            else:
+                shop_category[shop_type] = 1
+    dic_new = dict(zip(shop_category.values(), shop_category.keys()))
+    result = []
+    for i, j in dic_new.items():
+        result.append({'value':i, 'name':j})
+    return json.dumps({"data": result}, cls=util.NpEncoder)
 
 def main():
     # d = center_data(1)

@@ -55,7 +55,12 @@ def get_center_data():
 
 @app.route('/get_right2_data')
 def get_right2_data():
-    return handler.r2_data()
+    return handler.getShopCategoryNumByRegion("全市")
+
+@app.route('/get_right2_data_by_type',methods=['POST'])
+def get_right2_data_by_type():
+    regionType = json.loads(list(request.form)[0])["regionType"]
+    return handler.getShopCategoryNumByRegion(regionType)
 
 if __name__ == '__main__':
     app.run(debug=True)
