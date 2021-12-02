@@ -51,13 +51,16 @@ cca_right2_option_2 = {
   tooltip: {
     trigger: 'item'
   },
+  color:['#fd87ab','#11abff','#FF4500','#ffdf33','#968ade','#c23531','#2f4554','#61a0a8','#d48265','#749f83','#ca8622','#48cda6','#FF6A6A','#B22222','#C71585','#FFE4E1','#E6E6FA'],
   legend: {
-    top: '5%',
-    left: 'center'
+    top: '2%',
+    left: 'center',
+  
   },
+
   series: [
     {
-      center: ['50%', '65%'],
+      center: ['50%', '60%'],
       name: 'Access From',
       type: 'pie',
       radius: ['40%', '70%'],
