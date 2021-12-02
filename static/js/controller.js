@@ -47,7 +47,8 @@ function get_left2_data_2(type) {// 获取left2区域数据
               }),
         success:function (data) {
             // 将数据渲染到页面上
-            cca_left2_option_2.series[0].data = data.data;
+            cca_left2_option_2.xAxis[0].data = data.data[0];
+            cca_left2_option_2.series[0].data = data.data[1];
             cca_left2.clear();// 清除option便于重新设置
             cca_left2.setOption(cca_left2_option_2);
         },

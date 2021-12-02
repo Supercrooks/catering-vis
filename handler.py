@@ -123,17 +123,54 @@ def l2_data():# 处理用户评论信息
     return json.dumps(d, cls=util.NpEncoder)
 
 def l2_data_2(type):
-    # print(type)
-    # 找出所有类别是type的店铺id
-    type_shop = shop_df03[shop_df03["type"] == type]
-    id_list = list(type_shop["poiId"])
-    dict = {"01月":0,"02月":0,"03月":0,"04月":0,"05月":0,"06月":0,"07月":0,"08月":0,"09月":0,"10月":0,"11月":0,"12月":0,} # 存储月份评论数
-    # 根据id获取用户评论
-    for id in id_list:
-        comment_shop = comment_df[comment_df["poiId"] == int(id)]
-        for row in comment_shop["commentTime"].items():
-            dict[row[1][5:]] = dict.get(row[1][5:],0) + 1
-    return json.dumps({"data":list(dict.values())}, cls=util.NpEncoder)
+    dict = {
+    "火锅":[('火锅', 91430), ('生日蛋糕', 4729), ('小吃快餐', 4061), ('烧烤烤串', 2943)],
+    "生日蛋糕":[('生日蛋糕', 21448), ('火锅', 6447), ('小吃快餐', 1768), ('饮品店', 1351)],
+    "小吃快餐":[('小吃快餐', 13052), ('火锅', 4814), ('饮品店', 1404), ('生日蛋糕', 1302)],
+    "川湘菜":[('川湘菜', 6037),  ('火锅', 3989), ('生日蛋糕', 745), ('小吃快餐', 533)],
+    "面包甜点":[('面包甜点', 10543), ('火锅', 4133), ('小吃快餐', 1111), ('生日蛋糕', 1061)],
+    "北京菜":[('北京菜', 3143), ('火锅', 914), ('生日蛋糕', 270), ('烧烤烤串', 252)],
+    "烧烤烤串":[('烧烤烤串', 9855),  ('火锅', 4927), ('生日蛋糕', 967), ('饮品店', 761)],
+    "其他美食":[('其他美食', 1358), ('火锅', 547), ('生日蛋糕', 220), ('烧烤烤串', 84), ('小吃快餐', 62)],
+    "西餐":[('西餐', 3862), ('火锅', 1825), ('生日蛋糕', 531), ('饮品店', 465)],
+    "日本菜":[('日本菜', 4042), ('火锅', 1817), ('烧烤烤串', 491), ('生日蛋糕', 489)],
+    "香锅烤鱼":[('香锅烤鱼', 6270),('火锅', 3531), ('生日蛋糕', 720), ('小吃快餐', 588)],
+    "饮品店":[('饮品店', 9334), ('火锅', 3640), ('小吃快餐', 1572), ('生日蛋糕', 1274)],
+    "创意菜":[('火锅', 401), ('创意菜', 382), ('烧烤烤串', 94), ('饮品店', 75)],
+    "小龙虾":[('小龙虾', 898), ('火锅', 572), ('生日蛋糕', 189), ('小吃快餐', 185)],
+    "东北菜":[('火锅', 118), ('东北菜', 57), ('小吃快餐', 31), ('生日蛋糕', 27)],
+    "自助餐":[('火锅', 0), ('生日蛋糕', 0), ('小吃快餐', 0), ('川湘菜', 0), ('面包甜点', 0)],
+    "食品保健":[('小吃快餐', 9), ('西餐', 4), ('食品保健', 3), ('火锅', 2)],
+    "特色菜":[('特色菜', 1459),('火锅', 578), ('生日蛋糕', 145), ('烧烤烤串', 91)],
+    "西北菜":[('西北菜', 1092), ('火锅', 651), ('烧烤烤串', 199), ('北京菜', 159)],
+    "素食":[ ('素食', 83), ('火锅', 51), ('烧烤烤串', 11), ('饮品店', 8)],
+    "中式烧烤/烤串":[('烧烤烤串', 9855),('火锅', 4927), ('生日蛋糕', 967), ('饮品店', 761)],
+    "江河湖海鲜":[('江河湖海鲜', 328), ('火锅', 283), ('生日蛋糕', 50), ('烧烤烤串', 50)],
+    "新疆菜":[('火锅', 129), ('新疆菜', 59), ('生日蛋糕', 45), ('饮品店', 25)],
+    "日韩料理":[('日本菜', 4042), ('火锅', 1817), ('烧烤烤串', 491), ('生日蛋糕', 489)],
+    "云贵菜":[('火锅', 244), ('云贵菜', 154), ('生日蛋糕', 70), ('饮品店', 60)]}
+    listxy = dict.get(type)
+    listx = []
+    listy = []
+    for i in listxy:
+        listx.append(i[0])
+        listy.append(i[1])
+    listxy1 = [listx,listy]
+    return json.dumps({"data":listxy1}, cls=util.NpEncoder)
+     # # 找出所有类别是type的店铺id
+    # type_shop = shop_df03[shop_df03["type"] == type]
+    # id_list = list(type_shop["poiId"])
+    # dict = {"01月":0,"02月":0,"03月":0,"04月":0,"05月":0,"06月":0,"07月":0,"08月":0,"09月":0,"10月":0,"11月":0,"12月":0,} # 存储月份评论数
+    # # 根据id获取用户评论
+    # list_userId=[]
+    # for id in id_list:
+    #     comment_shop = comment_df[comment_df["poiId"] == int(id)]
+    #     for row in comment_shop["userId"].items():
+    #         list_userId.append(row[1])
+    # list_shop_key=[]
+    # list_shop_key = l2_data_hash(list_userId)
+    # print(list_shop_key)
+    # return json.dumps({"data":list(dict.values())}, cls=util.NpEncoder)
 
 def r2_data():
     # 返回店铺数据  店铺量  店铺评论量  种类量
@@ -147,6 +184,35 @@ def r2_data():
 
 
     return json.dumps({"data":l}, cls=util.NpEncoder)
+
+# def l2_data_hash(listUserId):
+#     dict = {"火锅":0,"生日蛋糕":0,"小吃快餐":0,"川湘菜":0,"面包甜点":0,"北京菜":0,"烧烤烤串":0,"其他美食":0,"西餐":0,
+#     "日本菜":0,"香锅烤鱼":0,"饮品店":0,"创意菜":0,"小龙虾":0,"东北菜":0,"自助餐":0,"食品保健":0,"特色菜":0,"西北菜":0,"素食":0,
+#     "中式烧烤/烤串":0,"江河湖海鲜":0,"新疆菜":0,"日韩料理":0,"云贵菜":0}
+#     listUserId2 = []
+#     for i in listUserId:
+#         if((i not in listUserId2)&(i!=0)):
+#             listUserId2.append(i)
+#     listShop = []
+#     for id in listUserId2:
+#         comment_user = comment_df[comment_df["userId"] == int(id)]
+#         poiId_list = list(comment_user["poiId"])
+#         for poiId in poiId_list:
+#             shop_type = poiId2type(poiId)
+#             dict[shop_type]=dict[shop_type]+1
+#     sorted_shop_type = sorted(dict.items(), key = lambda item:item[1],reverse=True)
+#     # sorted_list_shop_key=[]
+#     # for i in sorted_shop_type:
+#     #     sorted_list_shop_key.append(i[0])
+#     return sorted_shop_type[:5] 
+
+# def poiId2type(poiId):
+#     shop = shop_df03[shop_df03["poiId"] == str(poiId)]
+#     shop_type = list(shop["type"])
+#     if(len(shop_type)!=0):
+#         return shop_type[0]
+#     else:
+#         return '其他美食'
 
 
 def main():
