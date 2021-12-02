@@ -2,6 +2,7 @@ var sale_begin = document.getElementById('sale_begin');
 var sale_end = document.getElementById('sale_end');
 var score = document.getElementsByName('score');
 var classify = document.getElementsByName('classify');
+var cost_performance = document.getElementById('comment_view_1')
 // 当前位置的经纬度
 var cur_lng = 0;
 var cur_lat = 0;
@@ -45,6 +46,38 @@ function get_input() {
                         new_mapPoints.push(mapPoints[i]);
                     }
                 }
+                //性价比计算
+                var performance = new_mapPoints;
+                if(performance.length==0){
+
+                }
+                else{
+                    for( var i=0; i<performance.length;i++){
+                        for(var j=i; j<performance.length-1;j++){
+                            if(performance[j]>performance[j+1]){
+                                var a = performance[j];
+                                performance[j]=performance[j+1];
+                                performance[j+1]=a;
+                            }
+                        }
+                    }
+                    //性比价输出
+                    if(performance.length>5){
+                        cost_performance.innerHTML="";
+                        for(var i = 0; i<5;i++){
+                            cost_performance.innerHTML+=performance[i].name+'</br>';
+                        }
+                    }
+                    else{
+                        cost_performance.innerHTML="";
+                        for(var i = 0; i<performance.length;i++){
+                            cost_performance.innerHTML+=performance[i].name+'</br>';
+                        }
+                    }
+                    
+                }
+                
+                
                 tip.msg("搜索结果:"+new_mapPoints.length.toString()+"个");
                 map.clearOverlays(); //删除所有点
                 // 遍历mapPoints创建标注点
@@ -56,6 +89,14 @@ function get_input() {
                 }
             }
         }
+    
+    // if(new_mapPoints.length!=0){
+    //   var  cost_performance = [];
+    //   for(i = 0;i<new_mapPoints.length;i++){
+    //       cost_performance[i] = new_mapPoints[i].avgPrice/new_mapPointsp[i].avgScore;
+    //   }
+
+    // }
     }
 }
 // 获取定位

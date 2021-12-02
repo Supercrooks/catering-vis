@@ -36,9 +36,9 @@ def get_left3_data():
 @app.route('/get_left3_data_2')
 def get_left3_data_2():
     id = request.args.get("id")
-    print('**********************************')
-    print(type(id))
-    print(id)
+    # print('**********************************')
+    # print(type(id))
+    # print(id)
     return send_file( handler.l3_data(int(id)), mimetype='image/png', as_attachment=False )
 
 
