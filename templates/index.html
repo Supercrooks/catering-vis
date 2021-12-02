@@ -20,7 +20,7 @@
         <div id="left2"></div>
         <div id="title">绵阳餐饮消费数据可视化</div>
         <div id="center"></div>
-        <!-- <div id="bottom"></div> -->
+        <div id="bottom"></div>
         <div id="right1">
             <div id="recommend">
 				<h1>个性化推荐</h1> <!-- 标题 -->
@@ -59,37 +59,37 @@
 					<!-- <input type="checkbox" name="classify" value="火锅" tabindex="0" class="icheck" id="icheck" />     <label for="icheck" class="ilabel">label> -->
 					
 					<input type="checkbox" name="classify" value="食品保健" tabindex="0" />食品保健&nbsp;
-					<input type="checkbox" name="classify" value="东北菜  " tabindex="0" />东北菜&nbsp;
-					<input type="checkbox" name="classify" value="特色菜  " tabindex="0" />特色菜&nbsp;
+					<input type="checkbox" name="classify" value="东北菜" tabindex="0" />东北菜&nbsp;
+					<input type="checkbox" name="classify" value="特色菜" tabindex="0" />特色菜&nbsp;
 					<br>
 					<input type="checkbox" name="classify" value="香锅烤鱼" tabindex="0" />香锅烤鱼&nbsp;
-					<input type="checkbox" name="classify" value="新疆菜  " tabindex="0" />新疆菜&nbsp;
-					<input type="checkbox" name="classify" value="火锅    " tabindex="0" />火锅&nbsp;
+					<input type="checkbox" name="classify" value="新疆菜" tabindex="0" />新疆菜&nbsp;
+					<input type="checkbox" name="classify" value="火锅" tabindex="0" />火锅&nbsp;
 					<br>
 					
 					<input type="checkbox" name="classify" value="生日蛋糕" tabindex="0"  />生日蛋糕&nbsp;
-					<input type="checkbox" name="classify" value="自助餐  " tabindex="0" />自助餐&nbsp;
-					<input type="checkbox" name="classify" value="西餐    " tabindex="0"/>西餐&nbsp;
+					<input type="checkbox" name="classify" value="自助餐" tabindex="0" />自助餐&nbsp;
+					<input type="checkbox" name="classify" value="西餐" tabindex="0"/>西餐&nbsp;
 					
 					<br>
 					<input type="checkbox" name="classify" value="小吃快餐" tabindex="0"/>小吃快餐&nbsp;
-					<input type="checkbox" name="classify" value="川湘菜  " tabindex="0" />川湘菜&nbsp;
+					<input type="checkbox" name="classify" value="川湘菜" tabindex="0" />川湘菜&nbsp;
 					<br>
 					<input type="checkbox" name="classify" value="其他美食" tabindex="0"/>其他美食&nbsp;
-					<input type="checkbox" name="classify" value="创意菜  " tabindex="0" />创意菜&nbsp;
+					<input type="checkbox" name="classify" value="创意菜" tabindex="0" />创意菜&nbsp;
 					
 					<br>
 					<input type="checkbox" name="classify" value="江河湖海鲜" tabindex="0"  />江河海鲜&nbsp;
-					<input type="checkbox" name="classify" value="饮品店  " tabindex="0" />饮品店&nbsp;
+					<input type="checkbox" name="classify" value="饮品店" tabindex="0" />饮品店&nbsp;
 					<br>
 
 					<input type="checkbox" name="classify" value="烧烤烤串" tabindex="0" />烧烤烤串&nbsp;
-					<input type="checkbox" name="classify" value="小龙虾  " tabindex="0" />小龙虾&nbsp;
+					<input type="checkbox" name="classify" value="小龙虾" tabindex="0" />小龙虾&nbsp;
 					
 					
 					<br>
 					<input type="checkbox" name="classify" value="日韩料理" tabindex="0" />日韩料理&nbsp;				
-					<input type="checkbox" name="classify" value="北京菜  " tabindex="0"/>北京菜&nbsp;
+					<input type="checkbox" name="classify" value="北京菜" tabindex="0"/>北京菜&nbsp;
 					<br>	
 					
 					
@@ -111,13 +111,23 @@
 
 			</div>
         </div>
-        <div id="right2">
 
-        </div>
-        <div id="right2_btn" class="group_btn_region">
-            <button class="yx" onclick="get_num('游仙区')">游仙区</button>
-            <button class="fc" onclick="get_num('涪城区')">涪城区</button>
-        </div>
+		<div id="right2">
+			<div id="right2_1"></div>
+
+			<div class="right2_2">
+
+				<button  class="button" onclick="get_input_1()">游仙区</button>
+
+				<button  class="button_1" onclick="get_input_2()">涪城区 </button>
+
+				<button  class="button_2" onclick="get_input_3()">安州区 </button>
+				<button  class="button_3" onclick="get_input_4()">三台县 </button>
+				<button  class="button_4" onclick="get_input_5()">梓潼县 </button>
+				<!-- <button  class="button" onclick="get_input_6()">平武县 </button> -->
+				<button  class="button_5" onclick="get_input_6()">江油市 </button>
+			</div>
+		</div>
 
     </div>
     <script src="../static/js/jquery.js"></script>

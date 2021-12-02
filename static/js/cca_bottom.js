@@ -57,7 +57,7 @@ myChart.setOption({
 var time_mapPoints = [];
 
 myChart.on('dataZoom', function(e) {
-    // console.log(e);   // All params
+    console.log(e);   // All params
     time_start = e.start * 1.44;
     time_end = e.end * 1.44;
     time_mapPoints = [];
