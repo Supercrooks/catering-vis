@@ -29,7 +29,6 @@ shop_df02 = pd.read_csv(shop_data_path02)
 # 对店铺类型作处理
 shop_df03 = shop_df02.dropna(axis=0, how='any')
 shop_df03["type"] = shop_df03["type"].apply(lambda x: util.convert_shop_type(x))
-
 # 处理评论时间
 comment_df["commentTime"] = comment_df["commentTime"].apply(lambda x: util.convert_date(x / 1000))
 
@@ -62,11 +61,13 @@ def center_data(count):# 处理店铺信息
                 dict["avgPrice"] = shop_info["avgPrice"]
                 dict["longitude"] = shop_info["longitude"]
                 dict["latitude"] = shop_info["latitude"]
-
+                dict["costPerformance"] = shop_info["avgPrice"]/(shop_info["avgScore"]+1)
                 dict["poiId"] = shop_info["poiId"]
                 l.append(dict)
             # dict["phone"]
         # print(len(l))
+        print("----------------------------------")
+        print(dict["address"])
     return json.dumps({"data":l[(count-1)*100:count*100]}, cls=util.NpEncoder)
 
 def l1_data():# 词云
