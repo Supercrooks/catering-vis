@@ -23,15 +23,15 @@ function get_input() {
     // 存储筛选出的店铺
     new_mapPoints = [];
 
-    if(sale_begin.value === "" || sale_end.value === ""){
-        tip.msg("请填写预算")
-    }else{
+    // if(sale_begin.value === "" || sale_end.value === ""){
+    //     tip.msg("请填写预算")
+    // }else{
         if(menu.length === 0){
             tip.msg("请选择菜品类别")
         }else{
-            if(evaluate.length === 0){
-                tip.msg("请选择店铺评分")
-            }else{
+            // if(evaluate.length === 0){
+            //     tip.msg("请选择店铺评分")
+            // }else{
                 var temp_mapPoints = [];
                 if(temp_mapPoints.length === 0){
                     temp_mapPoints = [].concat(mapPoints);
@@ -39,10 +39,10 @@ function get_input() {
                     temp_mapPoints = [].concat(time_mapPoints);
                 }
                 for(var i = 0;i<temp_mapPoints.length;i++){
-                    if(mapPoints[i].avgPrice > sale_begin.value
-                        && mapPoints[i].avgPrice < sale_end.value
-                        && menu.includes(mapPoints[i].type)
-                        && evaluate.includes(Math.floor(mapPoints[i].avgScore).toString())){
+                    if(mapPoints[i].avgPrice > price_filter_from
+                        && mapPoints[i].avgPrice < price_filter_to
+                        && mapPoints[i].avgScore > score_filter_from
+	                    && mapPoints[i].avgScore < score_filter_to){
                         new_mapPoints.push(mapPoints[i]);
                     }
                 }
@@ -87,7 +87,7 @@ function get_input() {
                     var point = new BMap.Point(cur_lng,cur_lat);
                     set_cur_marker(point);
                 }
-            }
+            // }
         }
     
     // if(new_mapPoints.length!=0){
@@ -97,7 +97,7 @@ function get_input() {
     //   }
 
     // }
-    }
+    // }
 }
 // 获取定位
 function get_location() {
