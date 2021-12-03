@@ -1,5 +1,5 @@
-var sale_begin = document.getElementById('sale_begin');
-var sale_end = document.getElementById('sale_end');
+// var sale_begin = document.getElementById('sale_begin');
+// var sale_end = document.getElementById('sale_end');
 var score = document.getElementsByName('score');
 var classify = document.getElementsByName('classify');
 var cost_performance = document.getElementById('comment_view_1')
@@ -8,12 +8,12 @@ var cur_lng = 0;
 var cur_lat = 0;
 // 获取个性化的数据
 function get_input() {
-    var evaluate = [];
-    for (var i = 0; i < score.length; i++) {
-        if (score[i].checked) {
-            evaluate.push(score[i].value);
-        }
-    }
+    // var evaluate = [];
+    // for (var i = 0; i < score.length; i++) {
+    //     if (score[i].checked) {
+    //         evaluate.push(score[i].value);
+    //     }
+    // }
     var menu = [];
     for (var i = 0; i < classify.length; i++) {
         if (classify[i].checked) {
