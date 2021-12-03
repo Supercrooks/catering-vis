@@ -63,16 +63,17 @@ function get_input() {
                         }
                     }
                     //性比价输出
-                    if(performance.length>5){
+                    if(performance.length>10){
                         cost_performance.innerHTML="";
-                        for(var i = 0; i<5;i++){
-                            cost_performance.innerHTML+=performance[i].name+'</br>';
+                        for(var i = 0; i<10;i++){
+                            cost_performance.innerHTML+=('<li>'+performance[i].name+'</li>');
                         }
+                        // cost_performance.innerHTML=""+'</ol>';
                     }
                     else{
                         cost_performance.innerHTML="";
                         for(var i = 0; i<performance.length;i++){
-                            cost_performance.innerHTML+=performance[i].name+'</br>';
+                            cost_performance.innerHTML+=('<li>'+performance[i].name+'</li>');
                         }
                     }
                     

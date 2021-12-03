@@ -58,9 +58,10 @@ body{
 }
 #font_1{
     position: absolute;
-    font-size: 17px;
-    font-weight: 200;
-    color:rgb(48, 234, 166);
+    font-size: 19px;
+    font-weight:bold;
+    font-family: "Microsoft YaHei";
+    color:rgb(50, 93, 234);
 }
 #img_wc{
     position: absolute;
@@ -500,14 +501,30 @@ body{
     margin-left: 70px;
 }
 
-#comments_view{
-    position:absolute;
-    top: 20px;
+#cost_race{
+    position: absolute;
+    top: 5%;
     left: 100%;
     height: 450px;
     width: 220px;
-    overflow-y: scroll;
+    
+    font-size: 19px;
+    font-weight:bold;
+    font-family: "Microsoft YaHei";
+    color:rgb(35, 36, 34);
+    
 }
+
+#comments_view{
+    position:absolute;
+    top: 15%;
+    left: 100%;
+    height: 450px;
+    width: 200px;
+    /* overflow-y: scroll; */
+
+}
+
 
 .comment{
     /* position:absolute; */

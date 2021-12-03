@@ -67,8 +67,8 @@ def center_data(count):# 处理店铺信息
                 l.append(dict)
             # dict["phone"]
         # print(len(l))
-        print("----------------------------------")
-        print(dict["address"])
+        # print("----------------------------------")
+        # print(dict["address"])
     return json.dumps({"data":l[(count-1)*100:count*100]}, cls=util.NpEncoder)
 
 def l1_data():# 词云
@@ -106,7 +106,7 @@ def l3_data(id):# 词云
     w.generate(txt)
     w.to_image().save(img,format="PNG")
     img.seek(0)
-    print(img)
+    # print(img)
     return img
 
 
