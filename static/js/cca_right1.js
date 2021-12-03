@@ -39,10 +39,11 @@ function get_input() {
                     temp_mapPoints = [].concat(time_mapPoints);
                 }
                 for(var i = 0;i<temp_mapPoints.length;i++){
-                    if(mapPoints[i].avgPrice > sale_begin.value
-                        && mapPoints[i].avgPrice < sale_end.value
+                    if(mapPoints[i].avgPrice > price_filter_from
+                        && mapPoints[i].avgPrice < price_filter_to
                         && menu.includes(mapPoints[i].type)
-                        && evaluate.includes(Math.floor(mapPoints[i].avgScore).toString())){
+                        && mapPoints[i].avgScore > score_filter_from
+                        && mapPoints[i].avgScore < score_filter_to){
                         new_mapPoints.push(mapPoints[i]);
                     }
                 }
