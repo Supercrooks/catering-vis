@@ -1,5 +1,5 @@
-var sale_begin = document.getElementById('sale_begin');
-var sale_end = document.getElementById('sale_end');
+// var sale_begin = document.getElementById('sale_begin');
+// var sale_end = document.getElementById('sale_end');
 var score = document.getElementsByName('score');
 var classify = document.getElementsByName('classify');
 var cost_performance = document.getElementById('comment_view_1')
@@ -8,12 +8,12 @@ var cur_lng = 0;
 var cur_lat = 0;
 // 获取个性化的数据
 function get_input() {
-    var evaluate = [];
-    for (var i = 0; i < score.length; i++) {
-        if (score[i].checked) {
-            evaluate.push(score[i].value);
-        }
-    }
+    // var evaluate = [];
+    // for (var i = 0; i < score.length; i++) {
+    //     if (score[i].checked) {
+    //         evaluate.push(score[i].value);
+    //     }
+    // }
     var menu = [];
     for (var i = 0; i < classify.length; i++) {
         if (classify[i].checked) {
@@ -23,15 +23,15 @@ function get_input() {
     // 存储筛选出的店铺
     new_mapPoints = [];
 
-    if(sale_begin.value === "" || sale_end.value === ""){
-        tip.msg("请填写预算")
-    }else{
+    // if(sale_begin.value === "" || sale_end.value === ""){
+    //     tip.msg("请填写预算")
+    // }else{
         if(menu.length === 0){
             tip.msg("请选择菜品类别")
         }else{
-            if(evaluate.length === 0){
-                tip.msg("请选择店铺评分")
-            }else{
+            // if(evaluate.length === 0){
+            //     tip.msg("请选择店铺评分")
+            // }else{
                 var temp_mapPoints = [];
                 if(temp_mapPoints.length === 0){
                     temp_mapPoints = [].concat(mapPoints);
@@ -43,7 +43,7 @@ function get_input() {
                         && mapPoints[i].avgPrice < price_filter_to
                         && menu.includes(mapPoints[i].type)
                         && mapPoints[i].avgScore > score_filter_from
-                        && mapPoints[i].avgScore < score_filter_to){
+	                    && mapPoints[i].avgScore < score_filter_to){
                         new_mapPoints.push(mapPoints[i]);
                     }
                 }
@@ -88,7 +88,7 @@ function get_input() {
                     var point = new BMap.Point(cur_lng,cur_lat);
                     set_cur_marker(point);
                 }
-            }
+            // }
         }
     
     // if(new_mapPoints.length!=0){
@@ -98,7 +98,7 @@ function get_input() {
     //   }
 
     // }
-    }
+    // }
 }
 // 获取定位
 function get_location() {
